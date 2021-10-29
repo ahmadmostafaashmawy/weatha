@@ -27,7 +27,6 @@ class AppEditText extends StatelessWidget {
   final bool autoFocus;
   final bool alignLabelWithHint;
   final bool enableInteractiveSelection;
-  final int maxLength;
   final ValueChanged<String> onChanged;
   final FocusNode focusNode;
   final String errorText;
@@ -63,7 +62,6 @@ class AppEditText extends StatelessWidget {
     this.alignLabelWithHint = false,
     this.enableInteractiveSelection = true,
     this.suffixIcon,
-    this.maxLength = 50,
     this.errorText,
     this.obscureText = false,
     this.hintColor = AppColor.GrayPrimary,
@@ -83,7 +81,6 @@ class AppEditText extends StatelessWidget {
       autofocus: autoFocus,
       validator: validator,
       readOnly: readOnly,
-      maxLength: maxLength,
       onChanged: onChanged,
       focusNode: focusNode,
       obscureText: obscureText,

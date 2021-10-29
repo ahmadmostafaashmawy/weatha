@@ -25,7 +25,7 @@ class CityForecastBuilder extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             buildCityNameText(),
-            HeightBox(8),
+            HeightBox(4),
             buildWeatherDescription(),
             HeightBox(4),
             buildMaxTemp(),
@@ -44,14 +44,14 @@ class CityForecastBuilder extends StatelessWidget {
   Widget buildHumidity() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Image.asset(AppImages.humidityIcon,
-            height: 22, color: AppColor.Blue),
+        WidthBox(2),
+        Image.asset(AppImages.humidityIcon, height: 22, color: AppColor.Blue),
+        WidthBox(4),
         AppTextDisplay(
             text: "Humidity: ${cityForecast.main.humidity}",
             color: AppColor.LightBlue,
-            fontSize: 14),
+            fontSize: 16),
       ],
     );
   }
@@ -59,13 +59,14 @@ class CityForecastBuilder extends StatelessWidget {
   Widget buildWindSpeed() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
+        WidthBox(2),
         Image.asset(AppImages.windIcon, height: 22, color: AppColor.Blue),
+        WidthBox(4),
         AppTextDisplay(
             text: "Wind Speed: ${cityForecast.wind.speed}",
             color: AppColor.LightBlue,
-            fontSize: 14),
+            fontSize: 16),
       ],
     );
   }
@@ -73,13 +74,14 @@ class CityForecastBuilder extends StatelessWidget {
   Widget buildMinTemp() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
+        WidthBox(2),
         Image.asset(AppImages.moonIcon, height: 22, color: AppColor.Blue),
+        WidthBox(4),
         AppTextDisplay(
             text: "Min Temp: ${cityForecast.main.tempMin}°",
             color: AppColor.LightBlue,
-            fontSize: 14),
+            fontSize: 16),
       ],
     );
   }
@@ -87,13 +89,14 @@ class CityForecastBuilder extends StatelessWidget {
   Widget buildMaxTemp() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
+        WidthBox(2),
         Image.asset(AppImages.sunIcon, height: 22, color: AppColor.Blue),
+        WidthBox(4),
         AppTextDisplay(
             text: "Max Temp: ${cityForecast.main.tempMax}°",
             color: AppColor.LightBlue,
-            fontSize: 14),
+            fontSize: 16),
       ],
     );
   }
@@ -102,7 +105,8 @@ class CityForecastBuilder extends StatelessWidget {
     return AppTextDisplay(
         text: cityForecast.weather[0].description,
         color: AppColor.BlueThird,
-        fontSize: 14);
+        fontWeight: FontWeight.bold,
+        fontSize: 16);
   }
 
   Widget buildCityNameText() {

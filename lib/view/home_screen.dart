@@ -99,22 +99,24 @@ class _HomeScreenState extends State<HomeScreen> {
           }
           List<String> cities = [];
           List<String> str = citiesEditTextController.text.split(',');
-          for (String cityName in str) {
+          for (int i = 0; i < str.length; i++) {
+            if (cities.length == 7) break;
             if (RegExp(r'^[a-zA-Z ]+$')
-                .hasMatch(cityName.trimLeft().trimRight())) {
-              cities.add(cityName);
+                .hasMatch(str[i].trimLeft().trimRight())) {
+              cities.add(str[i]);
             }
           }
           if (cities.isNotEmpty) {
             BlocProvider.of<FetchCityForecastBLoc>(context)
-            .add(FetchEvent(cities));
+                .add(FetchEvent(cities));
           } else {
             showSnackBar(context, "You have to type a right city name");
           }
         });
   }
 
-  void fetchForecastListener(BuildContext context, FetchCityForecastState state) {
+  void fetchForecastListener(
+      BuildContext context, FetchCityForecastState state) {
     if (state is GetCitySuccess) {
       setState(() => citiesForecast = state.citiesForecast);
     } else if (state is GetCityFailed) {
@@ -143,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget buildCitiesList() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: GridView.builder(
         shrinkWrap: true,
         itemCount: citiesForecast.length,
