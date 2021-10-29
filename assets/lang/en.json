@@ -1,0 +1,6 @@
+{
+  "AppName": "WEATHA",
+  "Get": "Get",
+  "EnterCities": "Please enter cities (comma Separated and maximum of 7 cities)",
+  "LocationPermissionIsRequired": "Please accept location permission, It's required"
+}
