@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:weather/model/weather_response.dart';
 import 'package:weather/utilities/app_color.dart';
 import 'package:weather/utilities/app_images.dart';
-
-import 'components_widgets/size.dart';
-import 'components_widgets/text_display.dart';
+import 'package:weather/widgets/size.dart';
+import 'package:weather/widgets/text_display.dart';
 
 class CityForecastBuilder extends StatelessWidget {
   final WeatherResponse cityForecast;
@@ -25,7 +24,7 @@ class CityForecastBuilder extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             buildCityNameText(),
-            HeightBox(4),
+            HeightBox(8),
             buildWeatherDescription(),
             HeightBox(4),
             buildMaxTemp(),
@@ -44,14 +43,13 @@ class CityForecastBuilder extends StatelessWidget {
   Widget buildHumidity() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        WidthBox(2),
         Image.asset(AppImages.humidityIcon, height: 22, color: AppColor.Blue),
-        WidthBox(4),
         AppTextDisplay(
             text: "Humidity: ${cityForecast.main.humidity}",
             color: AppColor.LightBlue,
-            fontSize: 16),
+            fontSize: 14),
       ],
     );
   }
@@ -59,14 +57,13 @@ class CityForecastBuilder extends StatelessWidget {
   Widget buildWindSpeed() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        WidthBox(2),
         Image.asset(AppImages.windIcon, height: 22, color: AppColor.Blue),
-        WidthBox(4),
         AppTextDisplay(
             text: "Wind Speed: ${cityForecast.wind.speed}",
             color: AppColor.LightBlue,
-            fontSize: 16),
+            fontSize: 14),
       ],
     );
   }
@@ -74,14 +71,13 @@ class CityForecastBuilder extends StatelessWidget {
   Widget buildMinTemp() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        WidthBox(2),
         Image.asset(AppImages.moonIcon, height: 22, color: AppColor.Blue),
-        WidthBox(4),
         AppTextDisplay(
             text: "Min Temp: ${cityForecast.main.tempMin}°",
             color: AppColor.LightBlue,
-            fontSize: 16),
+            fontSize: 14),
       ],
     );
   }
@@ -89,14 +85,13 @@ class CityForecastBuilder extends StatelessWidget {
   Widget buildMaxTemp() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        WidthBox(2),
         Image.asset(AppImages.sunIcon, height: 22, color: AppColor.Blue),
-        WidthBox(4),
         AppTextDisplay(
             text: "Max Temp: ${cityForecast.main.tempMax}°",
             color: AppColor.LightBlue,
-            fontSize: 16),
+            fontSize: 14),
       ],
     );
   }
@@ -105,8 +100,7 @@ class CityForecastBuilder extends StatelessWidget {
     return AppTextDisplay(
         text: cityForecast.weather[0].description,
         color: AppColor.BlueThird,
-        fontWeight: FontWeight.bold,
-        fontSize: 16);
+        fontSize: 14);
   }
 
   Widget buildCityNameText() {

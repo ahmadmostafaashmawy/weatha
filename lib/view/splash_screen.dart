@@ -7,10 +7,10 @@ import 'package:weather/utilities/app_color.dart';
 import 'package:weather/utilities/app_images.dart';
 import 'package:weather/utilities/localization/localization_constains.dart';
 import 'package:weather/utilities/navigator.dart';
-import 'package:weather/view/components_widgets/size.dart';
+import 'package:weather/widgets/size.dart';
+import 'package:weather/widgets/text_display.dart';
 
 import '../routes.dart';
-import 'components_widgets/text_display.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather/model/weather_response.dart';
 import 'package:weather/utilities/app_color.dart';
-import 'package:weather/view/components_widgets/text_display.dart';
+import 'package:weather/widgets/text_display.dart';
 
 class ForecastItemBuilder extends StatelessWidget {
   const ForecastItemBuilder(

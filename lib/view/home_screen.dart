@@ -11,14 +11,13 @@ import 'package:weather/utilities/app_images.dart';
 import 'package:weather/utilities/localization/localization_constains.dart';
 import 'package:weather/utilities/navigator.dart';
 import 'package:weather/view/city_forecast_builder.dart';
-import 'package:weather/view/components_widgets/button_display.dart';
-import 'package:weather/view/components_widgets/loading.dart';
-import 'package:weather/view/components_widgets/size.dart';
-import 'package:weather/view/components_widgets/snakBar.dart';
-import 'package:weather/view/components_widgets/text_display.dart';
 import 'package:weather/view/home_header.dart';
-
-import 'components_widgets/text_field_display.dart';
+import 'package:weather/widgets/button_display.dart';
+import 'package:weather/widgets/loading.dart';
+import 'package:weather/widgets/size.dart';
+import 'package:weather/widgets/snak_bar.dart';
+import 'package:weather/widgets/text_display.dart';
+import 'package:weather/widgets/text_field_display.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -99,11 +98,10 @@ class _HomeScreenState extends State<HomeScreen> {
           }
           List<String> cities = [];
           List<String> str = citiesEditTextController.text.split(',');
-          for (int i = 0; i < str.length; i++) {
-            if (cities.length == 7) break;
+          for (String cityName in str) {
             if (RegExp(r'^[a-zA-Z ]+$')
-                .hasMatch(str[i].trimLeft().trimRight())) {
-              cities.add(str[i]);
+                .hasMatch(cityName.trimLeft().trimRight())) {
+              cities.add(cityName);
             }
           }
           if (cities.isNotEmpty) {
@@ -145,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget buildCitiesList() {
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(8.0),
       child: GridView.builder(
         shrinkWrap: true,
         itemCount: citiesForecast.length,
